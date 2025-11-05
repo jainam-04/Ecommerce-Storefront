@@ -1,11 +1,22 @@
+import { useEffect, useState } from "react"
+
 function App() {
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/products")
+    .then(response => response.json())
+    .then(data => {
+      setProducts(data);
+      console.log("Fetched all products successfully");
+    })
+    .catch(error => console.error("Error in fetching all products: ", error))
+  }, []);
+
   return (
-    <div className="container-fluid d-flex justify-content-between">
-      <button className='btn btn-primary'>Primary</button>
-      <button className="btn btn-secondary">Secondary</button>
-      <button className="btn btn-danger">Danger</button>
-      <button className="btn btn-success">Success</button>
+    <div>
+      
     </div>
   )
 }
