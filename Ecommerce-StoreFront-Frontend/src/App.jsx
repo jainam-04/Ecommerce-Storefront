@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ProductList from "./ProductList";
 
 function App() {
 
@@ -15,8 +16,14 @@ function App() {
   }, []);
 
   return (
-    <div>
-      
+    <div className="container mt-5 mb-5">
+      <div>
+        {products.length ? (
+          <ProductList products={products}/>
+        ) : (
+          <p>No products found</p>
+        )}
+      </div>
     </div>
   )
 }
